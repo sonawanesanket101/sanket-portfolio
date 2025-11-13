@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sanket Sonawane — Software Developer</title>
+  <meta name="description" content="Sanket Sonawane — Software Developer portfolio. Python, Java, C++, Web, Android, Blockchain."/>
+  <style>
+    :root{
+      --bg:#070708;            /* true black background */
+      --card:#0f1113;          /* dark card */
+      --red:#e03131;           /* vivid red accent */
+      --muted:#9aa3ad;         /* muted grey text */
+      --glass: rgba(255,255,255,0.03);
+      --radius:12px;
+      --maxw:1100px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg, #030304 0%, #0b0b0b 100%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      font-size:15px;
+    }
+    a{color:var(--red); text-decoration:none}
+    .wrap{max-width:var(--maxw);margin:28px auto;padding:22px;}
+    .header{
+      display:flex;align-items:center;gap:16px;padding:18px;border-radius:14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.03);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+    }
+    .avatar{
+      width:96px;height:96px;border-radius:14px;
+      background: linear-gradient(135deg, #1b1b1d, #222426);
+      display:flex;align-items:center;justify-content:center;
+      color:var(--red);font-weight:800;font-size:30px;flex-shrink:0;border:1px solid rgba(255,255,255,0.03);
+    }
+    .hdr-info h1{margin:0;font-size:20px}
+    .hdr-info p{margin:6px 0 0;color:var(--muted);font-size:14px}
+    .actions{margin-left:auto;display:flex;gap:10px;align-items:center}
+    .btn{
+      display:inline-block;padding:10px 14px;border-radius:10px;
+      background:var(--red); color:#0b0b0b; font-weight:700; font-size:13px; text-decoration:none;
+      box-shadow: 0 8px 26px rgba(224,49,49,0.12);
+      transition:transform .12s ease;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-ghost{
+      padding:9px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);
+      background:transparent;color:var(--muted);font-weight:600;font-size:13px;
+    }
+    main{display:grid;grid-template-columns:1fr 380px;gap:20px;margin-top:20px}
+    @media(max-width:900px){main{grid-template-columns:1fr;padding:0} .actions{display:none}}
+    .card{background:var(--card);border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.03)}
+    .section-title{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+    .section-title h2{margin:0;font-size:16px;color:#fff}
+    .muted{color:var(--muted);font-size:14px}
+    .summary p{margin:0;color:#dfe9f5}
+    .chips{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.02);color:var(--muted);font-weight:600;font-size:13px;border:1px solid rgba(255,255,255,0.02)}
+    .project{margin-bottom:14px}
+    .project h3{margin:0;font-size:15px;color:#fff}
+    .project p{margin:6px 0;color:var(--muted);font-size:13px}
+    .project ul{margin:8px 0 0 18px;color:#dfe9f5}
+    .project li{margin-bottom:6px}
+    .experience-item{margin-bottom:12px}
+    .contact-row{display:flex;gap:10px;align-items:center;margin-bottom:10px}
+    .small{font-size:13px;color:var(--muted)}
+    footer{margin-top:18px;text-align:center;color:var(--muted);font-size:13px}
+    /* right side small buttons */
+    .resume-links{display:flex;gap:8px;flex-wrap:wrap}
+    .resume-link{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:10px 12px;border-radius:10px;color:var(--muted);font-weight:700}
+    .resume-link.primary{background:var(--red);color:#0b0b0b;border:none}
+    /* contact form */
+    form{display:grid;gap:8px}
+    input,textarea{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:rgba(255,255,255,0.01);color:#e9f2ff}
+    input::placeholder, textarea::placeholder{color:rgba(255,255,255,0.25)}
+    .socials{display:flex;gap:10px;margin-top:8px}
+    .socials a{color:var(--red);text-decoration:none;font-weight:700;font-size:14px}
+    /* subtle separators */
+    .sep{height:1px;background:linear-gradient(90deg, transparent, rgba(255,255,255,0.02), transparent);margin:14px 0;border-radius:2px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <div class="avatar">SS</div>
+      <div class="hdr-info">
+        <h1>Sanket Sonawane</h1>
+        <p class="muted">Software Developer — Python • Java • C++ • Web • Android</p>
+      </div>
+      <div class="actions">
+        <a class="btn" href="sandbox:/mnt/data/Sanket_Visual_Resume_Blue.pdf" download>Download Visual Resume</a>
+        <a class="btn-ghost" href="sandbox:/mnt/data/Sanket_Software_Developer_ATS.pdf" download>Download ATS Resume</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- LEFT COLUMN -->
+      <section>
+        <div class="card summary">
+          <div class="section-title"><h2>Summary</h2></div>
+          <p>
+            Results-driven Computer Engineering student with strong foundations in software development,
+            data structures, algorithms, and clean coding principles. Skilled in Python, Java, C++, SQL, HTML/CSS,
+            and Android Studio. Experienced in building user-focused applications, improving performance, and collaborating using Git.
+          </p>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <div class="section-title"><h2>Projects</h2></div>
+
+          <article class="project">
+            <h3>SpeakUp — Anonymous Communication Platform (2024)</h3>
+            <p class="small">Android app focused on anonymous user expression and polished UI.</p>
+            <ul>
+              <li>Designed an anonymous platform enabling users to share thoughts without revealing identity.</li>
+              <li>Developed the front-end using Android Studio with emphasis on responsive UI/UX.</li>
+              <li>Performed cross-device testing and optimizations to ensure consistent performance.</li>
+            </ul>
+          </article>
+
+          <article class="project">
+            <h3>Online Voting System — Decentralized Voting Platform (Jan 2024 – Jun 2025)</h3>
+            <p class="small">A tamper-proof voting solution using blockchain smart contracts and a mobile UI.</p>
+            <ul>
+              <li>Developed a decentralized voting app using Ethereum smart contracts and Flutter UI.</li>
+              <li>Implemented secure vote encryption, transparent ledger tracking, and real-time result updates.</li>
+              <li>Designed end-to-end workflows to demonstrate blockchain’s potential for tamper-proof governance.</li>
+            </ul>
+          </article>
+
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <div class="section-title"><h2>Experience</h2></div>
+          <div class="experience-item">
+            <h3 style="margin:0;color:#fff">Web Development Intern — Neuropal</h3>
+            <p class="small">Dec 2024 – Jan 2025</p>
+            <ul>
+              <li>Built responsive web pages using HTML, CSS, and JavaScript.</li>
+              <li>Optimized UI responsiveness and reduced load times.</li>
+              <li>Collaborated using Git for version control and CI-friendly workflows.</li>
+            </ul>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- RIGHT COLUMN (sidebar) -->
+      <aside class="side">
+        <div class="card">
+          <div class="section-title"><h2>Contact</h2></div>
+          <div class="contact-row">
+            <div>
+              <div class="small">Phone</div>
+              <div><a href="tel:+918007748396">8007748396</a></div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div>
+              <div class="small">Email</div>
+              <div><a href="mailto:sonawanesanket101@gmail.com">sonawanesanket101@gmail.com</a></div>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div>
+              <div class="small">LinkedIn</div>
+              <div><a href="https://www.linkedin.com/in/sanket-sonawane-852337229" target="_blank">linkedin.com/in/sanket-sonawane-852337229</a></div>
+            </div>
+          </div>
+
+          <div class="sep"></div>
+
+          <div style="margin-top:8px">
+            <div class="small">Resume Downloads</div>
+            <div class="resume-links" style="margin-top:8px">
+              <a class="resume-link primary" href="sandbox:/mnt/data/Sanket_Software_Developer_ATS.pdf" download>ATS PDF</a>
+              <a class="resume-link" href="sandbox:/mnt/data/Sanket_Software_Developer_ATS.docx" download>Word</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <div class="section-title"><h2>Skills</h2></div>
+          <div class="chips">
+            <span class="chip">Python</span>
+            <span class="chip">Java</span>
+            <span class="chip">C++</span>
+            <span class="chip">SQL</span>
+            <span class="chip">HTML</span>
+            <span class="chip">CSS</span>
+            <span class="chip">Android Studio</span>
+            <span class="chip">Git</span>
+            <span class="chip">AWS (basic)</span>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <div class="section-title"><h2>Contact Me</h2></div>
+          <form action="mailto:sonawanesanket101@gmail.com" method="get" enctype="text/plain" onsubmit="alert('This will open your email client to send the message.');">
+            <input type="text" name="subject" placeholder="Subject" required>
+            <textarea name="body" placeholder="Message (brief)"></textarea>
+            <button class="btn" type="submit" style="width:100%;">Send Email</button>
+          </form>
+          <div class="socials">
+            <a href="https://www.linkedin.com/in/sanket-sonawane-852337229" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+
+      </aside>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Sanket Sonawane — Software Developer · Based in India</div>
+    </footer>
+  </div>
+
+  <script>
+    // set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
