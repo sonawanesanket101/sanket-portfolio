@@ -1,29 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sanket Sonawane Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanket Sonawane – Portfolio</title>
 
     <style>
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
             background: #0d0d0d;
-            color: white;
-            line-height: 1.6;
+            color: #fff;
         }
 
         header {
+            text-align: center;
             padding: 50px 20px;
-            text-align: center;
             background: #111;
-        }
-
-        /* PROFILE PHOTO */
-        .profile-photo {
-            text-align: center;
-            margin-bottom: 20px;
         }
 
         .profile-photo img {
@@ -31,22 +24,148 @@
             height: 180px;
             object-fit: cover;
             border-radius: 50%;
-            border: 4px solid #e50914; 
-            box-shadow: 0 0 20px rgba(229, 9, 20, 0.5);
+            border: 4px solid #e50914;
+            box-shadow: 0 0 20px rgba(229, 9, 20, 0.6);
+            margin-bottom: 20px;
         }
 
         h1 {
-            font-size: 40px;
-            margin-bottom: 10px;
             color: #e50914;
+            font-size: 40px;
+            margin: 0;
         }
 
         .subtitle {
+            opacity: 0.85;
             font-size: 18px;
-            opacity: 0.8;
+            margin-bottom: 20px;
         }
 
         .actions a {
-            margin: 10px;
             text-decoration: none;
-            pad
+            padding: 12px 20px;
+            display: inline-block;
+            margin: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .btn {
+            background: #e50914;
+            color: #fff;
+        }
+
+        .btn-ghost {
+            border: 2px solid #e50914;
+            color: #e50914;
+        }
+
+        section {
+            max-width: 900px;
+            padding: 40px 20px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #e50914;
+            border-left: 4px solid #e50914;
+            padding-left: 10px;
+            margin-bottom: 20px;
+        }
+
+        .box {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #e50914;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #111;
+            color: #999;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="profile-photo">
+            <img src="profile.jpg" alt="Sanket Sonawane Profile Photo">
+        </div>
+
+        <h1>Sanket Sonawane</h1>
+        <div class="subtitle">Backend Developer | Java · Python · SQL · Kubernetes</div>
+
+        <div class="actions">
+            <a class="btn" href="Sanket_Resume_Visual_Blue.pdf" download>Download Visual Resume</a>
+            <a class="btn-ghost" href="Sanket_Software_Developer_ATS.pdf" download>Download ATS Resume</a>
+        </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section>
+        <h2>About Me</h2>
+        <div class="box">
+            I am a backend-focused Computer Engineering student skilled in
+            Java, Python, SQL, REST APIs, database design, and cloud concepts
+            like Docker and Kubernetes.
+            I build clean, reliable backend systems and love optimizing performance.
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section>
+        <h2>Skills</h2>
+        <div class="box">
+            <b>Languages:</b> Java, Python, C++, SQL <br>
+            <b>Backend:</b> REST APIs, gRPC (basic), JSON, HTTP <br>
+            <b>Databases:</b> MySQL, PostgreSQL, Query Optimization <br>
+            <b>Cloud:</b> Kubernetes, Docker <br>
+            <b>Tools:</b> Git, VS Code, Postman <br>
+            <b>Core:</b> DSA, OS, System Design Basics
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section>
+        <h2>Projects</h2>
+
+        <div class="box">
+            <h3>SpeakUp – Anonymous Communication App</h3>
+            • Developed Android UI for anonymous messaging <br>
+            • Integrated backend APIs <br>
+            • Improved app performance and UI stability
+        </div>
+
+        <div class="box">
+            <h3>Online Voting System – Secure Voting Platform</h3>
+            • Designed secure voting workflow with data integrity <br>
+            • Implemented backend schema for encrypted vote storage <br>
+            • Ensured reliability and transparent records
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section>
+        <h2>Contact</h2>
+        <div class="box">
+            <b>Email:</b> sonawanesanket101@gmail.com <br>
+            <b>Phone:</b> 8007748396 <br>
+            <b>Location:</b> Pune, Maharashtra <br>
+            <b>LinkedIn:</b> www.linkedin.com/in/sanket-sonawane-852337229
+        </div>
+    </section>
+
+    <footer>
+        © 2025 Sanket Sonawane · All Rights Reserved
+    </footer>
+
+</body>
+</html>
