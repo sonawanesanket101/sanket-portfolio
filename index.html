@@ -1,182 +1,317 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanket Sonawane – Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sanket Sonawane — Portfolio</title>
+  <meta name="description" content="Sanket Sonawane — Backend Developer. Java · Python · SQL · Kubernetes" />
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: #0d0d0d;
-            color: #fff;
-        }
+  <style>
+    :root{
+      --bg:#070708;
+      --card:#0f1113;
+      --red:#e03131;
+      --muted:#9aa3ad;
+      --glass: rgba(255,255,255,0.03);
+      --radius:12px;
+      --maxw:1200px;
+      --content-pad:22px;
+      font-family: Inter, system-ui, system-ui,-apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#020203 0%,#0b0b0b 100%);color:#e9f2ff}
+    a{color:var(--red);text-decoration:none}
+    .wrap{max-width:var(--maxw);margin:24px auto;padding:12px}
+    /* HERO */
+    #hero{position:relative;overflow:hidden;min-height:68vh;display:flex;align-items:center;justify-content:center;padding:28px;}
+    .hero-bg{
+      position:absolute;inset:0;
+      background:
+        radial-gradient(800px 360px at 8% 18%, rgba(224,49,49,0.10), transparent 12%),
+        radial-gradient(600px 300px at 92% 84%, rgba(10,10,10,0.35), transparent 20%),
+        linear-gradient(180deg,#050505 0%, #0b0b0b 100%);
+      transform:scale(1.02);
+      filter:blur(6px);
+      z-index:0;
+      animation:bgPan 12s linear infinite;
+    }
+    @keyframes bgPan{0%{transform:translateX(-2%) scale(1.02)}50%{transform:translateX(2%) scale(1.02)}100%{transform:translateX(-2%) scale(1.02)}}
 
-        header {
-            text-align: center;
-            padding: 50px 20px;
-            background: #111;
-        }
+    .hero-inner{position:relative;z-index:2;display:flex;gap:36px;max-width:1100px;padding:40px;align-items:center;}
+    @media(max-width:930px){ .hero-inner{flex-direction:column;padding:26px} }
 
-        .profile-photo img {
-            width: 180px;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid #e50914;
-            box-shadow: 0 0 20px rgba(229, 9, 20, 0.6);
-            margin-bottom: 20px;
-        }
+    .profile-wrap{width:170px;height:170px;border-radius:50%;overflow:hidden;border:4px solid rgba(224,9,20,0.9);box-shadow:0 30px 60px rgba(0,0,0,0.6);flex-shrink:0;transition:transform .9s cubic-bezier(.2,.9,.2,1)}
+    .hero-photo{width:100%;height:100%;object-fit:cover;display:block;transform-origin:center;transition:transform .6s ease}
 
-        h1 {
-            color: #e50914;
-            font-size: 40px;
-            margin: 0;
-        }
+    .hero-texts{min-width:0}
+    .hero-title{margin:0 0 8px 0;font-size:44px;line-height:1.02;font-weight:800;color:#fff;letter-spacing:-0.02em}
+    @media(max-width:720px){.hero-title{font-size:30px;text-align:center}}
+    .cursor{color:var(--red);margin-left:8px;animation:blink 1s steps(2,start) infinite}
+    @keyframes blink{50%{opacity:0}}
 
-        .subtitle {
-            opacity: 0.85;
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
+    .hero-sub{margin:0 0 18px 0;color:var(--muted);font-weight:600}
 
-        .actions a {
-            text-decoration: none;
-            padding: 12px 20px;
-            display: inline-block;
-            margin: 10px;
-            border-radius: 8px;
-            font-weight: bold;
-        }
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-cta{padding:12px 18px;border-radius:10px;font-weight:700;border:none;cursor:pointer;display:inline-block}
+    .btn{background:linear-gradient(180deg,#ff3b3b,#e03131);color:#080808}
+    .btn-ghost{background:transparent;border:2px solid rgba(224,49,49,0.14);color:#e9e9ff}
 
-        .btn {
-            background: #e50914;
-            color: #fff;
-        }
+    .hero-right{width:320px;display:flex;flex-direction:column;gap:14px;align-items:flex-end}
+    @media(max-width:930px){.hero-right{width:100%;align-items:center;flex-direction:row;justify-content:center;flex-wrap:wrap}}
+    .feature-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);min-width:260px;color:#fff;font-weight:700;transform:translateY(18px) scale(.98);opacity:0;box-shadow:0 14px 40px rgba(0,0,0,0.45)}
 
-        .btn-ghost {
-            border: 2px solid #e50914;
-            color: #e50914;
-        }
+    /* reveal */
+    .reveal{animation:revealUp .56s cubic-bezier(.2,.9,.2,1) forwards}
+    .reveal-delay-1{animation-delay:.18s}
+    .reveal-delay-2{animation-delay:.34s}
+    .reveal-delay-3{animation-delay:.48s}
+    @keyframes revealUp{from{transform:translateY(18px) scale(.98);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
 
-        section {
-            max-width: 900px;
-            padding: 40px 20px;
-            margin: auto;
-        }
+    /* CONTENT SECTIONS */
+    section{max-width:980px;margin:36px auto;padding:0 18px}
+    h2{font-size:18px;color:var(--red);border-left:4px solid var(--red);padding-left:10px;margin-bottom:12px}
+    .box{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);color:#e9f2ff}
+    .grid-2{display:grid;grid-template-columns:1fr 380px;gap:20px}
+    @media(max-width:920px){.grid-2{grid-template-columns:1fr}}
 
-        h2 {
-            color: #e50914;
-            border-left: 4px solid #e50914;
-            padding-left: 10px;
-            margin-bottom: 20px;
-        }
+    .chips{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{padding:8px 10px;border-radius:9px;background:rgba(255,255,255,0.02);color:var(--muted);font-weight:700;font-size:13px;border:1px solid rgba(255,255,255,0.02)}
 
-        .box {
-            background: #1a1a1a;
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 4px solid #e50914;
-            margin-bottom: 20px;
-        }
+    /* Certificates animated gallery */
+    #certificates{margin-top:6px}
+    .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px}
+    .cert-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:8px;overflow:hidden;cursor:pointer;border:2px solid rgba(224,9,20,0.06);transform-origin:center;box-shadow:0 10px 30px rgba(0,0,0,0.45);opacity:0;transform:translateY(18px) scale(.96);transition:transform .36s ease}
+    .cert-card img{width:100%;height:160px;object-fit:cover;border-radius:8px;display:block;transition:transform .36s,box-shadow .28s}
+    .cert-card:hover img{transform:scale(1.06) rotate(-0.8deg);box-shadow:0 18px 42px rgba(224,49,49,0.16)}
+    .cert-card.revealed{animation:certReveal .6s cubic-bezier(.2,.9,.2,1) forwards}
+    @keyframes certReveal{to{opacity:1;transform:translateY(0) scale(1)}}
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #111;
-            color: #999;
-            margin-top: 30px;
-        }
-    </style>
+    /* Popup viewer */
+    .cert-popup{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:radial-gradient(circle at 10% 20%, rgba(224,49,49,0.08), transparent 6%),rgba(0,0,0,0.86);z-index:9999}
+    .cert-popup.open{display:flex}
+    .cert-frame{max-width:92%;max-height:86%;display:flex;align-items:center;justify-content:center;transform:scale(.86) translateY(18px);transition:transform .48s cubic-bezier(.22,.9,.2,1);border-radius:14px;outline:none}
+    .cert-popup.open .cert-frame{transform:scale(1) translateY(0);box-shadow:0 40px 100px rgba(0,0,0,0.7)}
+    #certFull{width:100%;height:auto;max-height:86vh;border-radius:10px;border:3px solid rgba(224,9,20,0.14);transform:rotate(-2deg) scale(.98);transition:transform .6s}
+    .cert-popup.open #certFull{transform:rotate(0deg) scale(1)}
+    .close-btn,.nav{position:absolute;background:rgba(0,0,0,0.5);color:#fff;border:none;padding:10px 14px;border-radius:8px;font-size:22px;cursor:pointer;backdrop-filter:blur(4px)}
+    .close-btn{top:20px;right:24px}
+    .nav.prev{left:16px;top:50%;transform:translateY(-50%)} .nav.next{right:16px;top:50%;transform:translateY(-50%)}
+    @media(max-width:720px){ .cert-card img{height:140px} .nav.prev,.nav.next{display:none} .close-btn{top:12px;right:12px;padding:8px} }
+
+    footer{margin-top:30px;text-align:center;color:var(--muted);padding:18px}
+  </style>
 </head>
-
 <body>
+  <div class="wrap">
 
-    <!-- HEADER -->
-    <header>
-        <div class="profile-photo">
-            <img src="profile.jpg" alt="Sanket Sonawane Profile Photo">
+    <!-- HERO -->
+    <header id="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+
+      <div class="hero-inner" role="banner">
+        <div style="display:flex;gap:22px;align-items:center;min-width:0">
+          <div class="profile-wrap" id="profileWrap">
+            <img class="hero-photo" src="profile.jpg" alt="Sanket Sonawane">
+          </div>
+
+          <div class="hero-texts">
+            <h1 class="hero-title"><span id="type-target">Sanket Sonawane</span><span class="cursor">|</span></h1>
+            <p class="hero-sub">Backend Developer · Java · Python · SQL · Kubernetes</p>
+
+            <div class="hero-actions">
+              <a class="hero-cta btn" href="Sanket_Resume_Visual_Blue.pdf" download>Download Visual Resume</a>
+              <a class="hero-cta btn-ghost" href="Sanket_Software_Developer_ATS.pdf" download>Download ATS Resume</a>
+            </div>
+          </div>
         </div>
 
-        <h1>Sanket Sonawane</h1>
-        <div class="subtitle">Backend Developer | Java · Python · SQL · Kubernetes</div>
-
-        <div class="actions">
-            <a class="btn" href="Sanket_Resume_Visual_Blue.pdf" download>Download Visual Resume</a>
-            <a class="btn-ghost" href="Sanket_Software_Developer_ATS.pdf" download>Download ATS Resume</a>
-        </div>
+        <aside class="hero-right" aria-hidden="false">
+          <div class="feature-card" id="card1">SpeakUp — Android App</div>
+          <div class="feature-card" id="card2">Online Voting — Secure Backend</div>
+        </aside>
+      </div>
     </header>
 
     <!-- ABOUT -->
-    <section>
-        <h2>About Me</h2>
-        <div class="box">
-            Motivated Computer Engineering graduate skilled in Java, Python, SQL, REST APIs, and 
-            backend development. Strong understanding of database schema design, API integration, 
-            and software engineering fundamentals. Seeking Backend / Software Developer roles.     </section>
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="box">
+        Backend-focused Computer Engineering student skilled in Java, Python, SQL, REST APIs, database design,
+        and cloud/container basics (Docker, Kubernetes). I design reliable backend systems and optimize
+        performance while following clean coding practices.
+      </div>
+    </section>
 
-    <!-- SKILLS -->
+    <!-- SKILLS + SIDEBAR -->
     <section>
-        <h2>Skills</h2>
-        <div class="box">
-            <b>Languages:</b> Java, Python, C++, SQL <br>
-            <b>Backend:</b> REST APIs, HTTP <br>
-            <b>Databases:</b> MySQL, Query Optimization <br>
-            <b>Cloud:</b> Kubernetes, Docker <br>
-            <b>Tools:</b> Git, VS Code, <br>
-            <b>Core:</b> DSA, OOP
-        </div>
+      <h2>Skills</h2>
+      <div class="box chips" aria-hidden="false">
+        <span class="chip">Java</span>
+        <span class="chip">Python</span>
+        <span class="chip">C++</span>
+        <span class="chip">SQL</span>
+        <span class="chip">REST APIs</span>
+        <span class="chip">PostgreSQL</span>
+        <span class="chip">MySQL</span>
+        <span class="chip">Kubernetes</span>
+        <span class="chip">Docker</span>
+        <span class="chip">Git</span>
+      </div>
     </section>
 
     <!-- PROJECTS -->
     <section>
-        <h2>Projects</h2>
+      <h2>Projects</h2>
 
-        <div class="box">
-            <h3>SpeakUp – Anonymous Communication App</h3>
-            • Developed Android UI for anonymous messaging <br>
-            • Integrated backend APIs <br>
-            • Improved app performance and UI stability
-        </div>
+      <div class="box" style="margin-bottom:14px">
+        <strong>SpeakUp — Anonymous Communication App</strong><br>
+        • Developed Android UI and integrated backend APIs.<br>
+        • Focused on UX, cross-device stability, and efficient data handling.
+      </div>
 
-        <div class="box">
-            <h3>Online Voting System – Secure Voting Platform</h3>
-            • Designed secure voting workflow with data integrity <br>
-            • Implemented backend schema for encrypted vote storage <br>
-            • Ensured reliability and transparent records
-        </div>
-
+      <div class="box">
+        <strong>Online Voting System — Secure Voting Platform (Jan 2024 – Jun 2025)</strong><br>
+        • Designed secure voting workflow and data schema for auditability.<br>
+        • Implemented encrypted vote storage patterns and result reconciliation.
+      </div>
     </section>
-    <section>
-    <h2>Certificates</h2>
 
-    <div class="actions">
-            <a class="btn" href="cert1.pdf" download>Certificate 1</a>
-            <a class="btn-ghost" href="cert2.pdf" download>Certificate 2</a>
-            <a class="btn" href="cert3.pdf" download>Certificate 3</a>
-            <a class="btn-ghost" href="cert4.png" download>Certificate 4</a>
-            <a class="btn" href="cert5.jpeg" download>Certificate 5</a>
+    <!-- CERTIFICATES -->
+    <section id="certificates">
+      <h2>Certificates</h2>
 
-            
-        </div>
-</section>
+      <div class="cert-grid" id="certGrid">
+        <div class="cert-card" data-src="cert1.jpg" aria-label="Certificate 1"><img alt="Certificate 1 thumbnail" loading="lazy"></div>
+        <div class="cert-card" data-src="cert2.jpg" aria-label="Certificate 2"><img alt="Certificate 2 thumbnail" loading="lazy"></div>
+        <div class="cert-card" data-src="cert3.jpg" aria-label="Certificate 3"><img alt="Certificate 3 thumbnail" loading="lazy"></div>
+        <div class="cert-card" data-src="cert4.png" aria-label="Certificate 4"><img alt="Certificate 4 thumbnail" loading="lazy"></div>
+        <div class="cert-card" data-src="cert5.jpeg" aria-label="Certificate 5"><img alt="Certificate 5 thumbnail" loading="lazy"></div>
+      </div>
+    </section>
 
+    <!-- POPUP FULLSCREEN VIEWER -->
+    <div class="cert-popup" id="certPopup" role="dialog" aria-hidden="true" aria-label="Certificate viewer">
+      <button class="close-btn" id="certClose" aria-label="Close certificate">✕</button>
+      <button class="nav prev" id="certPrev" aria-label="Previous">‹</button>
+      <div class="cert-frame" id="certFrame" tabindex="0">
+        <img id="certFull" alt="Full certificate image" src="">
+      </div>
+      <button class="nav next" id="certNext" aria-label="Next">›</button>
+    </div>
 
     <!-- CONTACT -->
-    <section>
-        <h2>Contact</h2>
-        <div class="box">
-            <b>Email:</b> sonawanesanket101@gmail.com <br>
-            <b>Phone:</b> 8007748396 <br>
-            <b>Location:</b> Pune, Maharashtra s<br>
-            <b>LinkedIn:</b> www.linkedin.com/in/sanket-sonawane-852337229
-        </div>
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="box">
+        <strong>Email:</strong> <a href="mailto:sonawanesanket101@gmail.com">sonawanesanket101@gmail.com</a><br>
+        <strong>Phone:</strong> <a href="tel:+918007748396">8007748396</a><br>
+        <strong>Location:</strong> Pune, Maharashtra<br>
+        <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/sanket-sonawane-852337229" target="_blank" rel="noopener">linkedin.com/in/sanket-sonawane-852337229</a>
+      </div>
     </section>
 
     <footer>
-        © 2025 Sanket Sonawane · All Rights Reserved
+      © <span id="year"></span> Sanket Sonawane · Built with ❤️
     </footer>
+  </div>
 
+  <!-- SCRIPTS -->
+  <script>
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Hero typewriter + reveals + photo float
+    (function(){
+      const phrases = ["Sanket Sonawane","I build reliable backends","Java · Python · SQL"];
+      let idx = 0, ch = 0, forward = true;
+      const target = document.getElementById('type-target');
+
+      function typeLoop(){
+        const phrase = phrases[idx];
+        if(forward){
+          ch++;
+          if(ch > phrase.length){ forward = false; setTimeout(typeLoop,700); return; }
+        } else {
+          ch--;
+          if(ch < 0){ forward = true; idx = (idx+1) % phrases.length; setTimeout(typeLoop,200); return; }
+        }
+        target.textContent = phrase.slice(0,ch);
+        setTimeout(typeLoop, forward ? 60 : 36);
+      }
+
+      document.addEventListener('DOMContentLoaded', ()=> {
+        typeLoop();
+
+        // stagger reveals
+        document.querySelectorAll('.hero-cta').forEach((el,i)=> setTimeout(()=> el.classList.add('reveal','reveal-delay-'+(i+1)),420 + i*120));
+        document.querySelectorAll('.feature-card').forEach((el,i)=> setTimeout(()=> el.classList.add('reveal','reveal-delay-'+(i+2)),540 + i*120));
+
+        // float photo
+        const profileWrap = document.getElementById('profileWrap');
+        let dir = 1, pos = 0;
+        setInterval(()=> {
+          pos += dir*0.6;
+          if(pos > 6 || pos < -6) dir *= -1;
+          profileWrap.style.transform = `translateY(${-pos}px)`;
+        },80);
+      });
+    })();
+
+    // Certificates gallery: lazy load thumbnails, stagger reveal, popup viewer with nav & keyboard
+    (function(){
+      document.addEventListener('DOMContentLoaded', ()=> {
+        const cards = Array.from(document.querySelectorAll('.cert-card'));
+        const popup = document.getElementById('certPopup');
+        const full = document.getElementById('certFull');
+        const close = document.getElementById('certClose');
+        const prevBtn = document.getElementById('certPrev');
+        const nextBtn = document.getElementById('certNext');
+        const frame = document.getElementById('certFrame');
+        let idx = 0;
+
+        cards.forEach((card,i)=>{
+          const img = card.querySelector('img');
+          const src = card.getAttribute('data-src');
+          if(img && src) img.src = src;
+
+          // stagger reveal
+          setTimeout(()=> card.classList.add('revealed'), 120 + i*110);
+
+          card.addEventListener('click', ()=> openAt(i));
+        });
+
+        function openAt(i){
+          idx = i;
+          full.src = cards[idx].getAttribute('data-src');
+          popup.classList.add('open');
+          popup.setAttribute('aria-hidden','false');
+          document.body.style.overflow = 'hidden';
+          frame.focus();
+        }
+
+        function closePopup(){
+          popup.classList.remove('open');
+          popup.setAttribute('aria-hidden','true');
+          document.body.style.overflow = '';
+        }
+        function showPrev(){ idx = (idx - 1 + cards.length) % cards.length; full.src = cards[idx].getAttribute('data-src'); }
+        function showNext(){ idx = (idx + 1) % cards.length; full.src = cards[idx].getAttribute('data-src'); }
+
+        close.addEventListener('click', closePopup);
+        prevBtn.addEventListener('click', e=>{ e.stopPropagation(); showPrev(); });
+        nextBtn.addEventListener('click', e=>{ e.stopPropagation(); showNext(); });
+        popup.addEventListener('click', e=> { if(e.target === popup) closePopup(); });
+
+        document.addEventListener('keydown', (e)=> {
+          if(popup.classList.contains('open')){
+            if(e.key === 'Escape') closePopup();
+            if(e.key === 'ArrowLeft') showPrev();
+            if(e.key === 'ArrowRight') showNext();
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
